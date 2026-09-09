@@ -20,6 +20,22 @@ pub fn criar_personagem() -> (String, String) {
             .read_line(&mut vocacao)
             .expect("Falha");
 
+        let escolha = vocacao.trim();
+        
+        if escolha == "1" {
+            vocacao.clear();
+            vocacao.push_str("Guerreiro");
+        } else if escolha == "2" {
+            vocacao.clear();
+            vocacao.push_str("Paladino");
+        } else if escolha == "3" {
+            vocacao.clear();
+            vocacao.push_str("Druida");
+        } else if escolha == "4" {
+            vocacao.clear();
+            vocacao.push_str("Guerreiro");
+        }
+
         let nome_limpo = nome_personagem.trim().to_string();
         let vocacao_limpa = vocacao.trim().to_string();
 

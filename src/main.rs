@@ -14,24 +14,20 @@ fn main() {
 
 
     let mut input = String::new();
-    let mut nome = String::new();
-    let mut vocacao = String::new();
 
     io::stdin()
         .read_line(&mut input)
         .expect("Falha");
 
-    if input.trim() == "1" {
-        
-        let (nome_criado, vocacao_criada) = novo_jogo::criar_personagem();
-        nome = nome_criado;
-        vocacao = vocacao_criada;
+    let (nome, vocacao) = if input.trim() == "1" {
+        novo_jogo::criar_personagem()
+
     } else {
         println!("Não existe jogo salvo.");
         return;
-    }
+    };
 
-    println!("Olá, {}!", nome);
+    println!("Olá, {}... O grande {}!", nome, vocacao);
     println!();
 
     println!("{}", fill("Seja bem-vindo a Eldoryan, um reino ancestral onde a própria essência da magia pulsa através da terra e ecoa nos ventos.", 70));
