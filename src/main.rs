@@ -20,8 +20,13 @@ fn main() {
         let (nome, vocacao) = novo_jogo::criar_personagem();
         novo_jogo::nova_historia(&nome, &vocacao);
         (nome, vocacao)
-    } else {
+
+    } else if input.trim() == "2" {
         println!("Não existe jogo salvo.");
+        return;
+
+      } else {
+        println!("Opção inválida.");
         return;
     };
     
