@@ -16,14 +16,14 @@ fn main() {
         .read_line(&mut input)
         .expect("Falha");
 
-    let (nome, vocacao) = if input.trim() == "1" {
-        novo_jogo::criar_personagem()
+    if input.trim() == "1" {
+        let (nome, vocacao) = novo_jogo::criar_personagem();
+        novo_jogo::nova_historia(&nome, &vocacao);
+        (nome, vocacao)
     } else {
         println!("Não existe jogo salvo.");
         return;
     };
-
-    novo_jogo::nova_historia(&nome, &vocacao);
     
 }
 
