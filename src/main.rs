@@ -1,8 +1,8 @@
 // biblioteca padrão de input/output
 use std::io;
 
-// exporta outros arquivos .rs para o projeto
-mod novo_jogo;
+// importar funções de outros arquivos .rs para o projeto (na main, usamos o nome do projeto, em outro arquivos usamos "crate" para referenciar o arquivo lib.rs)
+use rustpg::novo_jogo::*; // * representar a importação de todas as funções do arquivo apontado
 
 fn main() {
     println!("=== RPG MEDIEVAL === \n");
@@ -23,10 +23,10 @@ fn main() {
     if input.trim() == "1" {
 
         // recebe a tupla criada em criar_personagem() com nome e vocação além de chamar a fn
-        let (nome, vocacao) = novo_jogo::criar_personagem();
+        let (nome, vocacao) = criar_personagem();
 
         // chama a fn e permite que ela use a tupla criada anteriormente
-        novo_jogo::nova_historia(&nome, &vocacao);
+        nova_historia(&nome, &vocacao);
 
         // return
         (nome, vocacao)

@@ -4,18 +4,21 @@ use std::io;
 // biblioteca para formatação do texto que aparece no console
 use textwrap::fill;
 
+// importar funções de outros arquivos .rs para o projeto (na main, usamos o nome do projeto, em outro arquivos usamos "crate" para referenciar o arquivo lib.rs)
+use crate::cidade::*;
+
 // fn que cria uma tupla com 2 argumentos (nome e vocação). "pub" permite ser acessada por outro arquivo
 pub fn criar_personagem() -> (String, String) {
 
     let mut nome_personagem = String::new();
     let mut vocacao = String::new();
 
-    println!("Qual é o nome do seu personagem?");
+    println!(">>> Qual é o nome do seu personagem?");
         io::stdin()
             .read_line(&mut nome_personagem)
             .expect("Falha");
 
-        println!("Qual vocação você deseja ser?\n
+        println!(">>> Qual vocação você deseja ser?\n
         1. Guerreiro
         2. Paladino
         3. Druida
@@ -55,7 +58,7 @@ pub fn criar_personagem() -> (String, String) {
 
 // essa função recebe &str para sinalizar que variáveis de fora que não pertencem a ela serão usadas "emprestadas"
 pub fn nova_historia(nome: &str, vocacao: &str) {
-    println!("Olá, {}... O grande {}!", nome, vocacao);
+    println!("> Olá, {}... O grande {}!", nome, vocacao);
     println!();
 
     // fill é o método da biblioteca de formatação de texto para o console
@@ -64,9 +67,9 @@ pub fn nova_historia(nome: &str, vocacao: &str) {
     println!("{}", fill("Você acaba de adentrar um império de magnitude incomparável, moldado por eras de glória e lendas vivas, onde torres colossais arranham os céus e ruínas místicas aguardam para sussurrar seus segredos.", 70));
     println!();
 
-    println!("{}", fill("A sua esquerda está o caminho da cidade e a sua direita o bosque da floresta", 70));
+    println!("{}", fill("> A sua esquerda está o caminho da cidade e a sua direita o bosque da floresta", 70));
     println!();
-    println!("{}", fill("Para onde você quer ir? \n
+    println!("{}", fill(">>> Para onde você quer ir? \n
     1. Para a cidade \n
     2. Para o bosque", 70));
 
@@ -77,7 +80,7 @@ pub fn nova_historia(nome: &str, vocacao: &str) {
         .expect("Falha");
 
     if input.trim() == "1" {
-        println!("Você foi em direção à cidade...");
+        ir_para_cidade();
         input.clear();
     }
 }
