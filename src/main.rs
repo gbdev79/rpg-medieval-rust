@@ -1,6 +1,8 @@
 use std::io;
 use textwrap::fill;
 
+mod novo_jogo;
+
 fn main() {
     println!("=== RPG MEDIEVAL === \n");
 
@@ -9,8 +11,10 @@ fn main() {
     2. Carregar jogo
     ");
 
+
+
     let mut input = String::new();
-    let mut nome_personagem = String::new();
+    let mut nome = String::new();
     let mut vocacao = String::new();
 
     io::stdin()
@@ -18,23 +22,16 @@ fn main() {
         .expect("Falha");
 
     if input.trim() == "1" {
-        println!("Qual é o nome do seu personagem?");
-        io::stdin()
-            .read_line(&mut nome_personagem)
-            .expect("Falha");
-
-        println!("Qual vocação você deseja ser?\n
-        1. Guerreiro
-        2. Paladino
-        3. Druida
-        4. Mago
-        ");
-        io::stdin()
-            .read_line(&mut vocacao)
-            .expect("Falha");
+        
+        let (nome_criado, vocacao_criada) = novo_jogo::criar_personagem();
+        nome = nome_criado;
+        vocacao = vocacao_criada;
+    } else {
+        println!("Não existe jogo salvo.");
+        return;
     }
 
-    println!("Olá, {}!", nome_personagem.trim());
+    println!("Olá, {}!", nome);
     println!();
 
     println!("{}", fill("Seja bem-vindo a Eldoryan, um reino ancestral onde a própria essência da magia pulsa através da terra e ecoa nos ventos.", 70));
