@@ -5,3 +5,4 @@ pub mod cidade;
 pub mod agir;
 pub mod jogar_dados;
 pub mod personagem;
+pub mod enemies;
