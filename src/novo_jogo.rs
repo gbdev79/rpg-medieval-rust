@@ -67,4 +67,8 @@ pub fn nova_historia(nome: &str, vocacao: &str) {
     if input.trim() == "1" {
         println!("Você foi em direção à cidade...");
     }
+
+    if input.trim() == "2" {
+        println!("Você foi em direção ao bosque...")
+    }
 }

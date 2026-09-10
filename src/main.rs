@@ -3,11 +3,11 @@ use std::io;
 mod novo_jogo;
 
 fn main() {
-    println!("=== RPG MEDIEVAL === \n");
+    println!(" ⚔️ === RPG MEDIEVAL ===⚔️ \n");
 
-    println!("Menu Principal: \n 
-    1. Novo jogo
-    2. Carregar jogo
+    println!("📜 Menu Principal: \n 
+    1. 🆕 Novo jogo
+    2. 💾 Carregar jogo
     ");
 
     let mut input = String::new();
