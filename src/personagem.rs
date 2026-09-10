@@ -2,8 +2,8 @@
 
 pub struct Jogador {
     pub nome: String,
-    pub hp: i32,
-    pub mp: i32,
+    pub hp: u32,
+    pub mp: u32,
     // inventario: ,
     pub classe: String,
 }
