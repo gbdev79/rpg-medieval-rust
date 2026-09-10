@@ -1,4 +1,3 @@
-use std::io; // padrão I/O
 use rand::Rng; // números aleatórios
 
 pub fn rolar_d6() -> i32 { // declara o tipo Int para o return da função

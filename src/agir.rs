@@ -3,6 +3,7 @@ use crate::jogar_dados::*;
 pub fn atacar() {
 
     let dado = rolar_d6();
+
     if dado <= 2 {
         println!("> Você errou o ataque!")
     } else if dado == 3 {
