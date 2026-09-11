@@ -8,7 +8,7 @@ use textwrap::fill;
 use crate::cidade::*;
 use crate::personagem::*;
 
-// fn que cria uma tupla com 2 argumentos (nome e vocação). "pub" permite ser acessada por outro arquivo
+// Cria o personagem e envia os dados para a Struct Jogador em Personagem.rs
 pub fn criar_personagem() -> Jogador {
 
     // variáveis para receber os inputs do personagem
@@ -48,7 +48,7 @@ pub fn criar_personagem() -> Jogador {
         Jogador { nome: nome_limpo, hp, mp, classe }
 }
 
-// essa função recebe &str para sinalizar que variáveis de fora que não pertencem a ela serão usadas "emprestadas"
+// Inicia o jogo
 pub fn nova_historia(personagem: &Jogador) {
     println!("> Olá, {}... O grande {}!", personagem.nome, personagem.classe);
     println!();

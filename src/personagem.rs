@@ -1,5 +1,3 @@
-
-
 pub struct Jogador {
     pub nome: String,
     pub hp: u32,
