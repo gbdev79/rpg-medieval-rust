@@ -6,7 +6,4 @@ edition = "2024"
 [dependencies]
 colored = "2.1"
 textwrap = "0.16"
-<<<<<<< HEAD
-=======
 rand = "0.8"
->>>>>>> be87df7a18d06ca361061b90d907f1d2828a1c5f

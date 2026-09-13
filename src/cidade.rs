@@ -5,9 +5,9 @@ use std::io;
 use textwrap::fill;
 
 // importar funções de outros arquivos .rs para o projeto (na main, usamos o nome do projeto, em outro arquivos usamos "crate" para referenciar o arquivo lib.rs)
-use crate::agir::*;
+use crate::personagem::*;
 
-pub fn ir_para_cidade() {
+pub fn ir_para_cidade(personagem: &mut Jogador) {
     println!("> Você foi em direção à cidade...");
     println!();
     println!("{}", fill("> O dia estava ensolarado e os passáros cantavam ao longo da estrada, quando de repente...", 70));
@@ -26,7 +26,7 @@ pub fn ir_para_cidade() {
         .expect("Falha");
 
     if input.trim() == "1" {
-        atacar();
+        personagem.atacar();
     }
 
 }

@@ -31,26 +31,18 @@ pub fn criar_personagem() -> Jogador {
         io::stdin()
             .read_line(&mut input_vocacao)
             .expect("Falha");
-
-        // Declara as variáveis que vão para o struct, o Match substitui o uso de if`s
-        let (classe, hp, mp) = match input_vocacao.trim() {
-            "1" => (String::from("Guerreiro"), 200, 30),
-            "2" => (String::from("Paladino"), 150, 100),
-            "3" => (String::from("Druida"), 80, 120),
-            "4" => (String::from("Mago"), 60, 200),
-            _ => (String::from("Cidadão"), 100, 50),
-        };
-
+        
         // remove o \n do input
         let nome_limpo = nome_personagem.trim().to_string();
+        let vocacao_limpa = input_vocacao.trim();
 
         // retorna a tupla pro struct
-        Jogador { nome: nome_limpo, hp, mp, classe }
+        Jogador::novo(nome_limpo, vocacao_limpa)
 }
 
 // Inicia o jogo
-pub fn nova_historia(personagem: &Jogador) {
-    println!("> Olá, {}... O grande {}!", personagem.nome, personagem.classe);
+pub fn nova_historia(personagem: &mut Jogador) {
+    println!("> Olá, {}... O grande {:?}!", personagem.nome, personagem.classe);
     println!();
 
     // fill é o método da biblioteca de formatação de texto para o console
@@ -72,7 +64,7 @@ pub fn nova_historia(personagem: &Jogador) {
         .expect("Falha");
 
     if input.trim() == "1" {
-        ir_para_cidade();
+        ir_para_cidade(personagem);
         input.clear();
     }
 

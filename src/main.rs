@@ -5,6 +5,7 @@ use std::io;
 use rustpg::novo_jogo::*; // * representar a importação de todas as funções do arquivo apontado
 
 fn main() {
+
     println!(" ⚔️ === RPG MEDIEVAL ===⚔️ \n");
 
     println!("📜 Menu Principal: \n 
@@ -22,10 +23,10 @@ fn main() {
     // ".trim()" remove o \n que vem junto com o input do usuário    
     if input.trim() == "1" {
 
-        let jogador = criar_personagem();
+        let mut jogador = criar_personagem();
 
         // chama a fn e permite que ela use a tupla criada anteriormente
-        nova_historia(&jogador);
+        nova_historia(&mut jogador);
 
     } else if input.trim() == "2" {
         println!("Não existe jogo salvo.");
