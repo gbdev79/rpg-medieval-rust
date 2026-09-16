@@ -1,7 +1,6 @@
-<<<<<<< Updated upstream
-=======
 use crate::jogar_dados::*;
 use crate::enemies::*;
+
 
 #[derive(Debug)]
 pub enum ClasseJogador {
@@ -12,15 +11,13 @@ pub enum ClasseJogador {
     Cidadão,
 }
 
->>>>>>> Stashed changes
 pub struct Jogador {
     pub nome: String,
+    pub max_hp: u32,
     pub hp: u32,
+    pub max_mp: u32,
     pub mp: u32,
     // inventario: ,
-<<<<<<< Updated upstream
-    pub classe: String,
-=======
     pub classe: ClasseJogador,
 }
 
@@ -72,7 +69,6 @@ impl Jogador {
         }
 
     }
-
     pub fn receber_dano(&mut self, quantidade_hp: u32 )  {
         self.hp = self.hp.saturating_sub(quantidade_hp);
 
@@ -83,6 +79,4 @@ impl Jogador {
             println!("{}, HP {}/{}", self.nome, self.hp, self.max_hp);
         }
     }
-
->>>>>>> Stashed changes
 }
