@@ -1,32 +1,30 @@
-// biblioteca padrão de input/output
-use std::io;
-
-// biblioteca para formatação do texto que aparece no console
-use textwrap::fill;
-
 // importar funções de outros arquivos .rs para o projeto (na main, usamos o nome do projeto, em outro arquivos usamos "crate" para referenciar o arquivo lib.rs)
+<<<<<<< Updated upstream
 use crate::agir::*;
+=======
+use crate::personagem::*;
+use crate::enemies::*;
+use crate::combate::*;
+>>>>>>> Stashed changes
 
 pub fn ir_para_cidade() {
     println!("> Você foi em direção à cidade...");
-    println!();
-    println!("{}", fill("> O dia estava ensolarado e os passáros cantavam ao longo da estrada, quando de repente...", 70));
-    println!();
-    println!("{}", fill("> Um ladrão apareceu e apontando uma faca exclamou:\n 'Me entregue sua mochila ou morra!'", 70));
-    println!();
-    println!(">>> O que você quer fazer?\n
-    1. Atacar
-    2. Correr
-    ");
+    
+    let mut inimigo = sortear_inimigo(Local::Cidade);
 
-    let mut input = String::new();
+    iniciar_combate(personagem, &mut inimigo);
 
+<<<<<<< Updated upstream
     io::stdin()
         .read_line(&mut input)
         .expect("Falha");
 
     if input.trim() == "1" {
         atacar();
+=======
+    if personagem.hp > 0 {
+        println!("Após a batalha, você continua sua jornada e finalmente chega a cidade!")
+>>>>>>> Stashed changes
     }
 
 }
